@@ -6,7 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.primarySurface
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,21 +26,77 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge() // экран растягивается от края до края
         setContent {
             SpeakFreelyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    bottomBar = {
+                        BottomNavigationBar()
+                    }
+                ) { innerPadding ->
 
                 }
             }
         }
     }
-
     @Composable
     fun BottomNavigationBar () {
         BottomNavigation(
-            contentColor = MaterialTheme.colors.primary
+            backgroundColor = MaterialTheme.colors.primarySurface,
+            contentColor = MaterialTheme.colors.onPrimary
         ) {
             BottomNavigationItem (
                 icon = {
-                    ImageVector.vectorResource(id = R.drawable.)
+                    Icon(
+                        ImageVector.vectorResource(id = R.drawable.ic_chat),
+                        contentDescription = "Chat"
+                    )
+                },
+                selected = false,
+                onClick = {
+
+                }
+            )
+            BottomNavigationItem (
+                icon = {
+                    Icon(
+                        ImageVector.vectorResource(id = R.drawable.ic_camera),
+                                contentDescription = "Camera"
+                    )
+                },
+                selected = false,
+                onClick = {
+
+                }
+            )
+            BottomNavigationItem (
+                icon = {
+                    Icon(
+                        ImageVector.vectorResource(id = R.drawable.ic_translate),
+                                contentDescription = "Translate "
+                    )
+                },
+                selected = false,
+                onClick = {
+
+                }
+            )
+            BottomNavigationItem (
+                icon = {
+                    Icon(
+                        ImageVector.vectorResource(id = R.drawable.ic_history),
+                                contentDescription = "History"
+                    )
+                },
+                selected = false,
+                onClick = {
+
+                }
+            )
+            BottomNavigationItem (
+                icon = {
+                    Icon(
+                        ImageVector.vectorResource(id = R.drawable.ic_fav),
+                                contentDescription = "Favorite"
+                    )
                 },
                 selected = false,
                 onClick = {
