@@ -6,11 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.primarySurface
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,72 +32,72 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-    @Composable
-    fun BottomNavigationBar () {
-        BottomNavigation(
-            backgroundColor = MaterialTheme.colors.primarySurface,
-            contentColor = MaterialTheme.colors.onPrimary
-        ) {
-            BottomNavigationItem (
-                icon = {
-                    Icon(
-                        ImageVector.vectorResource(id = R.drawable.ic_chat),
-                        contentDescription = "Chat"
-                    )
-                },
-                selected = false,
-                onClick = {
-
-                }
-            )
-            BottomNavigationItem (
-                icon = {
-                    Icon(
-                        ImageVector.vectorResource(id = R.drawable.ic_camera),
-                                contentDescription = "Camera"
-                    )
-                },
-                selected = false,
-                onClick = {
-
-                }
-            )
-            BottomNavigationItem (
-                icon = {
-                    Icon(
-                        ImageVector.vectorResource(id = R.drawable.ic_translate),
-                                contentDescription = "Translate "
-                    )
-                },
-                selected = false,
-                onClick = {
-
-                }
-            )
-            BottomNavigationItem (
-                icon = {
-                    Icon(
-                        ImageVector.vectorResource(id = R.drawable.ic_history),
-                                contentDescription = "History"
-                    )
-                },
-                selected = false,
-                onClick = {
-
-                }
-            )
-            BottomNavigationItem (
-                icon = {
-                    Icon(
-                        ImageVector.vectorResource(id = R.drawable.ic_fav),
-                                contentDescription = "Favorite"
-                    )
-                },
-                selected = false,
-                onClick = {
-
-                }
-            )
-        }
-    }
+//    @Composable
+//    fun BottomNavigationBar () {
+//        BottomNavigation(
+//            backgroundColor = MaterialTheme.colors.primarySurface,
+//            contentColor = MaterialTheme.colors.onPrimary
+//        ) {
+//            BottomNavigationItem (
+//                icon = {
+//                    Icon(
+//                        ImageVector.vectorResource(id = R.drawable.ic_chat),
+//                        contentDescription = "Chat"
+//                    )
+//                },
+//                selected = false,
+//                onClick = {
+//
+//                }
+//            )
+//            BottomNavigationItem (
+//                icon = {
+//                    Icon(
+//                        ImageVector.vectorResource(id = R.drawable.ic_camera),
+//                                contentDescription = "Camera"
+//                    )
+//                },
+//                selected = false,
+//                onClick = {
+//
+//                }
+//            )
+//            BottomNavigationItem (
+//                icon = {
+//                    Icon(
+//                        ImageVector.vectorResource(id = R.drawable.ic_translate),
+//                                contentDescription = "Translate "
+//                    )
+//                },
+//                selected = false,
+//                onClick = {
+//
+//                }
+//            )
+//            BottomNavigationItem (
+//                icon = {
+//                    Icon(
+//                        ImageVector.vectorResource(id = R.drawable.ic_history),
+//                                contentDescription = "History"
+//                    )
+//                },
+//                selected = false,
+//                onClick = {
+//
+//                }
+//            )
+//            BottomNavigationItem (
+//                icon = {
+//                    Icon(
+//                        ImageVector.vectorResource(id = R.drawable.ic_fav),
+//                                contentDescription = "Favorite"
+//                    )
+//                },
+//                selected = false,
+//                onClick = {
+//
+//                }
+//            )
+//        }
+//    }
 }
