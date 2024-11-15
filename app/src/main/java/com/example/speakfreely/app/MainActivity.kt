@@ -14,90 +14,33 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.speakfreely.app.ui.theme.SpeakFreelyTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge() // экран растягивается от края до края
         setContent {
             SpeakFreelyTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    bottomBar = {
-                        BottomNavigationBar()
-                    }
-                ) { innerPadding ->
-
-                }
+                MainScreen()
             }
         }
     }
-//    @Composable
-//    fun BottomNavigationBar () {
-//        BottomNavigation(
-//            backgroundColor = MaterialTheme.colors.primarySurface,
-//            contentColor = MaterialTheme.colors.onPrimary
-//        ) {
-//            BottomNavigationItem (
-//                icon = {
-//                    Icon(
-//                        ImageVector.vectorResource(id = R.drawable.ic_chat),
-//                        contentDescription = "Chat"
-//                    )
-//                },
-//                selected = false,
-//                onClick = {
-//
-//                }
-//            )
-//            BottomNavigationItem (
-//                icon = {
-//                    Icon(
-//                        ImageVector.vectorResource(id = R.drawable.ic_camera),
-//                                contentDescription = "Camera"
-//                    )
-//                },
-//                selected = false,
-//                onClick = {
-//
-//                }
-//            )
-//            BottomNavigationItem (
-//                icon = {
-//                    Icon(
-//                        ImageVector.vectorResource(id = R.drawable.ic_translate),
-//                                contentDescription = "Translate "
-//                    )
-//                },
-//                selected = false,
-//                onClick = {
-//
-//                }
-//            )
-//            BottomNavigationItem (
-//                icon = {
-//                    Icon(
-//                        ImageVector.vectorResource(id = R.drawable.ic_history),
-//                                contentDescription = "History"
-//                    )
-//                },
-//                selected = false,
-//                onClick = {
-//
-//                }
-//            )
-//            BottomNavigationItem (
-//                icon = {
-//                    Icon(
-//                        ImageVector.vectorResource(id = R.drawable.ic_fav),
-//                                contentDescription = "Favorite"
-//                    )
-//                },
-//                selected = false,
-//                onClick = {
-//
-//                }
-//            )
-//        }
-//    }
+
+    @Composable
+    fun MainScreen() {
+        Scaffold(
+            bottomBar = {
+
+            }
+        ) {
+
+        }
+    }
+
+    @Composable
+    fun BottomNavigationBar(navController) {
+
+    }
 }
