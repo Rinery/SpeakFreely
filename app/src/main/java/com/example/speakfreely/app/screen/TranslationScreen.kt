@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.speakfreely.app.ui.TextInput
+import com.example.speakfreely.app.ui.TranslateButton
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,6 +39,10 @@ fun TranslationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        TranslateButton(onTranslate =  { viewModel.translateText() })
 
+        uiState.value.translatedText?.let {
+
+        }
     }
 }

@@ -41,3 +41,13 @@ fun TranslateButton(onTranslate: () -> Unit) {
         }
     }
 }
+
+@Composable
+fun TranslationResult(result: String) {
+    OutlinedTextField(
+        value = result,
+        onValueChange = {},
+        readOnly = true,
+        modifier = Modifier.fillMaxWidth()
+    )
+}
