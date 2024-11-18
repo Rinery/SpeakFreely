@@ -66,6 +66,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
+// Фикс ошибки при билде проекта
 hilt {
     enableAggregatingTask = false
 }
