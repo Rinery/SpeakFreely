@@ -58,6 +58,10 @@ dependencies {
 
     implementation(libs.navigation)
 
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.ser)
+    implementation(libs.kotlinx.serialization.json)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

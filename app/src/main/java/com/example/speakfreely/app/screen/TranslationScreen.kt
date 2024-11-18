@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.speakfreely.app.ui.TextInput
 import com.example.speakfreely.app.ui.TranslateButton
+import com.example.speakfreely.app.ui.TranslationResult
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +43,7 @@ fun TranslationScreen(
         TranslateButton(onTranslate =  { viewModel.translateText() })
 
         uiState.value.translatedText?.let {
-
+            TranslationResult(it)
         }
     }
 }
