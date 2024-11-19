@@ -66,6 +66,10 @@ dependencies {
 
     implementation(libs.okhttp.logging)
 
+    implementation(libs.room.runtime)
+    implementation(libs.androidx.room)
+    ksp(libs.room.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

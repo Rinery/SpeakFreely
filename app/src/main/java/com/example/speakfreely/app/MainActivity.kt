@@ -52,26 +52,27 @@ class MainActivity : ComponentActivity() {
                 navController = navController,
                 startDestination = "translate" // экран при запуске приложения
             ) {
-                composable("chat") {}
-                composable("camera") {}
+//                composable("chat") {}
+//                composable("camera") {}
                 composable("translate") { TranslationScreen() } // добавляем переход на экран Translation
                 composable("history") {}
-                composable("favourite") {}
+//                composable("favourite") {}
             }
         }
     }
 
-    private val Destinations = listOf("chat", "camera", "translate", "history", "favourite")
+//    private val Destinations = listOf("chat", "camera", "translate", "history", "favourite")
+    private val Destinations = listOf("translate", "history")
 
     @Composable
     fun BottomNavigationBar(navController: NavController) {
-        var selectedItem by rememberSaveable { mutableIntStateOf(2) }
+        var selectedItem by rememberSaveable { mutableIntStateOf(0) }
         val icons = listOf(
-            ImageVector.vectorResource(R.drawable.ic_chat),
-            ImageVector.vectorResource(R.drawable.ic_camera),
+//            ImageVector.vectorResource(R.drawable.ic_chat),
+//            ImageVector.vectorResource(R.drawable.ic_camera),
             ImageVector.vectorResource(R.drawable.ic_translate),
             ImageVector.vectorResource(R.drawable.ic_history),
-            ImageVector.vectorResource(R.drawable.ic_fav),
+//            ImageVector.vectorResource(R.drawable.ic_fav),
         )
 
         NavigationBar (
