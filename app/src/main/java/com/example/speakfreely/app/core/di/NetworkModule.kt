@@ -15,7 +15,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okhttpCallFactory: Lazy<Call.Factory>): Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .build()
