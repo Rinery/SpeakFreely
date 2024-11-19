@@ -36,7 +36,11 @@ class TranslationViewModel @Inject constructor(
 
     fun translateText() {
         viewModelScope.launch {
-            // val result =
+            val result = translationUseCase.translate(
+                sl = ,
+                dl = ,
+                text = ,
+            )
         }
     }
 }
