@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -38,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true // добавляем билд конфиг для отслеживания логгирования сети на уровне билда
     }
 }
 
@@ -61,6 +63,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.ser)
     implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.okhttp.logging)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
