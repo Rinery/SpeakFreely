@@ -24,6 +24,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.speakfreely.app.screen.TranslationScreen
 import com.example.speakfreely.app.ui.theme.SpeakFreelyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,7 +54,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 composable("chat") {}
                 composable("camera") {}
-                composable("translate") {}
+                composable("translate") { TranslationScreen() } // добавляем переход на экран Translation
                 composable("history") {}
                 composable("favourite") {}
             }

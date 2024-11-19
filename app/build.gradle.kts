@@ -54,8 +54,13 @@ dependencies {
 
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.navigation)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.ser)
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -66,6 +71,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
+// Фикс ошибки при билде проекта
 hilt {
     enableAggregatingTask = false
 }
