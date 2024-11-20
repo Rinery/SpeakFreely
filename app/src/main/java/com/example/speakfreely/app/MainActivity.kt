@@ -24,7 +24,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.speakfreely.app.screen.TranslationScreen
+import com.example.speakfreely.app.screen.history.HistoryScreen
+import com.example.speakfreely.app.screen.translation.TranslationScreen
 import com.example.speakfreely.app.ui.theme.SpeakFreelyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,26 +53,27 @@ class MainActivity : ComponentActivity() {
                 navController = navController,
                 startDestination = "translate" // экран при запуске приложения
             ) {
-                composable("chat") {}
-                composable("camera") {}
+//                composable("chat") {}
+//                composable("camera") {}
                 composable("translate") { TranslationScreen() } // добавляем переход на экран Translation
-                composable("history") {}
-                composable("favourite") {}
+                composable("history") { HistoryScreen() }
+//                composable("favourite") {}
             }
         }
     }
 
-    private val Destinations = listOf("chat", "camera", "translate", "history", "favourite")
+//    private val Destinations = listOf("chat", "camera", "translate", "history", "favourite")
+    private val Destinations = listOf("translate", "history")
 
     @Composable
     fun BottomNavigationBar(navController: NavController) {
-        var selectedItem by rememberSaveable { mutableIntStateOf(2) }
+        var selectedItem by rememberSaveable { mutableIntStateOf(0) }
         val icons = listOf(
-            ImageVector.vectorResource(R.drawable.ic_chat),
-            ImageVector.vectorResource(R.drawable.ic_camera),
+//            ImageVector.vectorResource(R.drawable.ic_chat),
+//            ImageVector.vectorResource(R.drawable.ic_camera),
             ImageVector.vectorResource(R.drawable.ic_translate),
             ImageVector.vectorResource(R.drawable.ic_history),
-            ImageVector.vectorResource(R.drawable.ic_fav),
+//            ImageVector.vectorResource(R.drawable.ic_fav),
         )
 
         NavigationBar (
