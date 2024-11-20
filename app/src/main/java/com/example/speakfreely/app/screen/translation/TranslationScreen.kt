@@ -1,4 +1,4 @@
-package com.example.speakfreely.app.screen
+package com.example.speakfreely.app.screen.translation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

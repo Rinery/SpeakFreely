@@ -1,9 +1,10 @@
-package com.example.speakfreely.app.screen
+package com.example.speakfreely.app.screen.translation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.speakfreely.app.core.domain.LanguageCode
-import com.example.speakfreely.app.core.domain.TranslationUseCase
+import com.example.speakfreely.app.core.domain.history.SaveHistoryUseCase
+import com.example.speakfreely.app.core.domain.translation.TranslationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class TranslationViewModel @Inject constructor(
     private val translationUseCase: TranslationUseCase,
+    private val saveHistoryUseCase: SaveHistoryUseCase,
 ): ViewModel() {
     private val _uiState = MutableStateFlow(TranslationUiState())
     val uiState: StateFlow<TranslationUiState> = _uiState
@@ -44,8 +46,13 @@ class TranslationViewModel @Inject constructor(
             )
 
             // обновляем результат вывода, если перевода нет (null) - выводим то значение которое ввели
-            _uiState.update { it.copy(translatedText = result.translations.possibleTranslations.firstOrNull()
-                ?: _uiState.value.inputText) }
+            _uiState.update {
+                it.copy(
+                    translatedText = result.translations.possibleTranslations.firstOrNull()
+                ?: _uiState.value.inputText
+                )
+            }
+            saveHistoryUseCase.save(_uiState.value.inputText, _uiState.value.translatedText.orEmpty())
         }
     }
 }
