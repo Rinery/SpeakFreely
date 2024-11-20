@@ -51,3 +51,8 @@ fun TranslationResult(result: String, modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxWidth()
     )
 }
+
+@Composable
+fun LanguageSelector(sourceLanguage: String, targetLanguage: String, onSwapLanguages: () -> Unit) {
+    // TODO: Добавить кнопку смены языков
+}

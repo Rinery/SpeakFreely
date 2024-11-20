@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [], version = 1)
+@Database(entities = [TranslationHistory::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    // dao
+    abstract fun translationHistoryDao(): TranslationHistoryDao
 
     companion object {
         @Volatile

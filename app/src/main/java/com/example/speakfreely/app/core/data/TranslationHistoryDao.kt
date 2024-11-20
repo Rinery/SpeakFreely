@@ -11,5 +11,5 @@ interface TranslationHistoryDao {
     suspend fun insertHistory(history: TranslationHistory)
 
     @Query("SELECT * FROM translation_history ORDER BY timestamp")
-    fun getTranslationHistory(): Flow<TranslationHistory>
+    fun getTranslationHistory(): Flow<List<TranslationHistory>>
 }

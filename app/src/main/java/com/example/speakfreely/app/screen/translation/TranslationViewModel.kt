@@ -40,8 +40,8 @@ class TranslationViewModel @Inject constructor(
     fun translateText() {
         viewModelScope.launch {
             val result = translationUseCase.translate(
-                sl = LanguageCode.ENGLISH,
-                dl = LanguageCode.RUSSIAN,
+                sl = LanguageCode.ENGLISH, // _uiState.value.sourceLang
+                dl = LanguageCode.RUSSIAN, // _uiState.value.targetLang
                 text = _uiState.value.inputText,
             )
 

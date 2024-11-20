@@ -31,7 +31,7 @@ class NetworkModule {
     // Добавляем логгирование сети на уровне дебага
     @Provides
     @Singleton
-    fun okHttp(): Call.Factory {
+    fun provideOkHttp(): Call.Factory {
         return OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
