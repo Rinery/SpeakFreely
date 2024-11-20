@@ -1,11 +1,14 @@
 package com.example.speakfreely.app.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -43,13 +46,25 @@ fun TranslateButton(onTranslate: () -> Unit, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun TranslationResult(result: String, modifier: Modifier = Modifier) {
-    OutlinedTextField(
-        value = result,
-        onValueChange = {},
-        readOnly = true,
-        modifier = modifier.fillMaxWidth()
-    )
+fun TranslationResult(
+    result: String,
+    modifier: Modifier = Modifier,
+    onFavoriteClick: () -> Unit // добавляем обработчик клика на иконку
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween // выравниваем элементы
+    ) {
+        OutlinedTextField(
+            value = result,
+            onValueChange = {},
+            readOnly = true,
+            modifier = Modifier.weight(1f) // текстовое поле занимает основное пространство
+        )
+        IconButton(onClick = onFavoriteClick) { // иконка справа
+            Icon(Icons.Default.Star, contentDescription = "Add to Favorites")
+        }
+    }
 }
 
 @Composable

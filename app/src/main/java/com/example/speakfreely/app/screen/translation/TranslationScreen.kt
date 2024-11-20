@@ -46,10 +46,11 @@ fun TranslationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        uiState.value.translatedText?.let {
+        uiState.value.translatedText?.let { translatedText ->
             TranslationResult(
-                result = it,
+                result = translatedText,
                 modifier = Modifier.padding(horizontal = 16.dp), // добавлен горизонтальный отступ
+                onFavoriteClick = { viewModel.saveToFavorites() }
             )
         }
     }
