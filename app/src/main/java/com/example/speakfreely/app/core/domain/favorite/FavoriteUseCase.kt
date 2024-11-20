@@ -1,12 +1,12 @@
-package com.example.speakfreely.app.core.domain.favourite
+package com.example.speakfreely.app.core.domain.favorite
 
 import com.example.speakfreely.app.core.data.TranslationFavorite
 import com.example.speakfreely.app.core.data.TranslationFavoriteDao
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
-class FavouriteUseCase @Inject constructor(
+class FavoriteUseCase @Inject constructor(
     private val translationFavoriteDao: TranslationFavoriteDao
 ){
-    fun getFavourites(): Flow<List<TranslationFavorite>> = translationFavoriteDao.getFavorites()
+    fun getFavorites(): Flow<List<TranslationFavorite>> = translationFavoriteDao.getFavorites()
 }
