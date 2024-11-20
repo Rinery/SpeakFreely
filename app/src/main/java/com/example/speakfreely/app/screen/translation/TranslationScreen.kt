@@ -13,6 +13,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.speakfreely.app.core.domain.availableLanguages
+import com.example.speakfreely.app.ui.LanguageSelector
 import com.example.speakfreely.app.ui.TextInput
 import com.example.speakfreely.app.ui.TranslateButton
 import com.example.speakfreely.app.ui.TranslationResult
@@ -29,6 +31,23 @@ fun TranslationScreen(
     ) {
         TopAppBar(title = { Text("Translation App") })
 
+        // Обновленный компонент выбора языков
+        LanguageSelector(
+            sourceLanguage = uiState.value.sourceLang,
+            targetLanguage = uiState.value.targetLang,
+            availableLanguages = availableLanguages,
+            onSourceLanguageSelected = { code, name ->
+                viewModel.updateSourceLanguage(code, name)
+            },
+            onTargetLanguageSelected = { code, name ->
+                viewModel.updateTargetLanguage(code, name)
+            },
+            onSwapLanguages = { viewModel.swapLanguages() }
+        )
+
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         TextInput(
             language = uiState.value.sourceLang,
             text = uiState.value.inputText,
@@ -41,15 +60,17 @@ fun TranslationScreen(
 
         TranslateButton(
             onTranslate =  { viewModel.translateText() },
+            isEnabled = uiState.value.inputText.isNotBlank(), // кнопка перевода неактивна если в ней нет текста
             modifier = Modifier.padding(horizontal = 16.dp), // добавлен горизонтальный отступ
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        uiState.value.translatedText?.let {
+        uiState.value.translatedText?.let { translatedText ->
             TranslationResult(
-                result = it,
+                result = translatedText,
                 modifier = Modifier.padding(horizontal = 16.dp), // добавлен горизонтальный отступ
+                onFavoriteClick = { viewModel.saveToFavorites() }
             )
         }
     }

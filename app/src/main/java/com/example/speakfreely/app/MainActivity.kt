@@ -24,6 +24,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.speakfreely.app.screen.favorite.FavoriteScreen
 import com.example.speakfreely.app.screen.history.HistoryScreen
 import com.example.speakfreely.app.screen.translation.TranslationScreen
 import com.example.speakfreely.app.ui.theme.SpeakFreelyTheme
@@ -57,13 +58,13 @@ class MainActivity : ComponentActivity() {
 //                composable("camera") {}
                 composable("translate") { TranslationScreen() } // добавляем переход на экран Translation
                 composable("history") { HistoryScreen() }
-//                composable("favourite") {}
+                composable("favourite") { FavoriteScreen() }
             }
         }
     }
 
 //    private val Destinations = listOf("chat", "camera", "translate", "history", "favourite")
-    private val Destinations = listOf("translate", "history")
+    private val Destinations = listOf("translate", "history", "favourite")
 
     @Composable
     fun BottomNavigationBar(navController: NavController) {
@@ -73,7 +74,7 @@ class MainActivity : ComponentActivity() {
 //            ImageVector.vectorResource(R.drawable.ic_camera),
             ImageVector.vectorResource(R.drawable.ic_translate),
             ImageVector.vectorResource(R.drawable.ic_history),
-//            ImageVector.vectorResource(R.drawable.ic_fav),
+            ImageVector.vectorResource(R.drawable.ic_fav),
         )
 
         NavigationBar (

@@ -2,6 +2,7 @@ package com.example.speakfreely.app.core.di
 
 import android.content.Context
 import com.example.speakfreely.app.core.data.AppDatabase
+import com.example.speakfreely.app.core.data.TranslationFavoriteDao
 import com.example.speakfreely.app.core.data.TranslationHistoryDao
 import dagger.Module
 import dagger.Provides
@@ -26,4 +27,11 @@ object DatabaseModule {
     fun provideHistoryDao(db: AppDatabase): TranslationHistoryDao {
         return db.translationHistoryDao()
     }
+
+    @Provides
+    @Singleton
+    fun provideFavoriteDao(db: AppDatabase): TranslationFavoriteDao {
+        return db.translationFavoriteDao()
+    }
+
 }
