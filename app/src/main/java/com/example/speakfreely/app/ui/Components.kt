@@ -68,6 +68,19 @@ fun TranslationResult(
 }
 
 @Composable
-fun LanguageSelector(sourceLanguage: String, targetLanguage: String, onSwapLanguages: () -> Unit) {
+fun LanguageSelector(
+    sourceLanguage: String,
+    targetLanguage: String,
+    modifier: Modifier = Modifier,
+    onSwapLanguages: () -> Unit
+) {
     // TODO: Добавить кнопку смены языков
+    Row (
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+        Text("Source: $sourceLanguage")
+        Button(onClick = onSwapLanguages) { Text("Swap") }
+        Text("Target: $targetLanguage")
+    }
 }

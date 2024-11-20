@@ -10,7 +10,7 @@ class TranslationUseCase @Inject constructor(
     private val translationApi: TranslationApi
 ) {
     // sl - source lang, dl - destination lang
-    suspend fun translate(sl: LanguageCode, dl: LanguageCode, text: String): TranslationResponse {
-        return translationApi.translate(sl.code, dl.code, text)
+    suspend fun translate(sl: String, dl: String, text: String): TranslationResponse {
+        return translationApi.translate(sl, dl, text)
     }
 }

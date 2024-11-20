@@ -8,5 +8,9 @@ import kotlinx.coroutines.flow.Flow
 class FavoriteUseCase @Inject constructor(
     private val translationFavoriteDao: TranslationFavoriteDao
 ){
-    fun getFavorites(): Flow<List<TranslationFavorite>> = translationFavoriteDao.getFavorites()
+    fun getFavorites() = translationFavoriteDao.getFavorites()
+
+    suspend fun saveFavorite(translationFavorite: TranslationFavorite) {
+        translationFavoriteDao.insertFavorite(translationFavorite)
+    }
 }

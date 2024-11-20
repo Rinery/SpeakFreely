@@ -13,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.speakfreely.app.ui.LanguageSelector
 import com.example.speakfreely.app.ui.TextInput
 import com.example.speakfreely.app.ui.TranslateButton
 import com.example.speakfreely.app.ui.TranslationResult
@@ -28,6 +29,16 @@ fun TranslationScreen(
         modifier = Modifier.fillMaxSize()
     ) {
         TopAppBar(title = { Text("Translation App") })
+
+        LanguageSelector(
+            sourceLanguage = uiState.value.sourceLang,
+            targetLanguage = uiState.value.targetLang,
+            onSwapLanguages = { viewModel.swapLanguages() },
+            modifier = Modifier.padding(horizontal = 16.dp)
+        )
+
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         TextInput(
             language = uiState.value.sourceLang,

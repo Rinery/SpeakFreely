@@ -64,7 +64,7 @@ class MainActivity : ComponentActivity() {
     }
 
 //    private val Destinations = listOf("chat", "camera", "translate", "history", "favourite")
-    private val Destinations = listOf("translate", "history")
+    private val Destinations = listOf("translate", "history", "favourite")
 
     @Composable
     fun BottomNavigationBar(navController: NavController) {
@@ -74,7 +74,7 @@ class MainActivity : ComponentActivity() {
 //            ImageVector.vectorResource(R.drawable.ic_camera),
             ImageVector.vectorResource(R.drawable.ic_translate),
             ImageVector.vectorResource(R.drawable.ic_history),
-//            ImageVector.vectorResource(R.drawable.ic_fav),
+            ImageVector.vectorResource(R.drawable.ic_fav),
         )
 
         NavigationBar (

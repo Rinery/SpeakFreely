@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [TranslationHistory::class, TranslationFavorite::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun translationHistoryDao(): TranslationHistoryDao
-    abstract fun translationFavouriteDao(): TranslationFavoriteDao
+    abstract fun translationFavoriteDao(): TranslationFavoriteDao
 
     companion object {
         @Volatile

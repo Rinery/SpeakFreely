@@ -2,7 +2,9 @@ package com.example.speakfreely.app.screen.translation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.speakfreely.app.core.data.TranslationFavorite
 import com.example.speakfreely.app.core.domain.LanguageCode
+import com.example.speakfreely.app.core.domain.favorite.FavoriteUseCase
 import com.example.speakfreely.app.core.domain.history.SaveHistoryUseCase
 import com.example.speakfreely.app.core.domain.translation.TranslationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +18,7 @@ import javax.inject.Inject
 class TranslationViewModel @Inject constructor(
     private val translationUseCase: TranslationUseCase,
     private val saveHistoryUseCase: SaveHistoryUseCase,
+    private val favoriteUseCase: FavoriteUseCase,
 ): ViewModel() {
     private val _uiState = MutableStateFlow(TranslationUiState())
     val uiState: StateFlow<TranslationUiState> = _uiState
@@ -40,8 +43,8 @@ class TranslationViewModel @Inject constructor(
     fun translateText() {
         viewModelScope.launch {
             val result = translationUseCase.translate(
-                sl = LanguageCode.ENGLISH, // _uiState.value.sourceLang
-                dl = LanguageCode.RUSSIAN, // _uiState.value.targetLang
+                sl = _uiState.value.sourceLang, // _uiState.value.sourceLang
+                dl = _uiState.value.targetLang, // _uiState.value.targetLang
                 text = _uiState.value.inputText,
             )
 
@@ -55,6 +58,20 @@ class TranslationViewModel @Inject constructor(
             saveHistoryUseCase.save(_uiState.value.inputText, _uiState.value.translatedText.orEmpty())
         }
     }
+
+    fun saveToFavorites() {
+        viewModelScope.launch {
+            uiState.value.translatedText?.let { translatedText ->
+                favoriteUseCase.saveFavorite(
+                    TranslationFavorite(
+                        sourceText = uiState.value.inputText,
+                        translatedText = translatedText
+                    )
+                )
+            }
+        }
+    }
+
 }
 
 data class TranslationUiState(
@@ -62,4 +79,6 @@ data class TranslationUiState(
     val targetLang: String = "Russian",
     val inputText: String = "",
     val translatedText: String? = null,
+    val isFavorite: Boolean = false,
 )
+
